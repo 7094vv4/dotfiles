@@ -36,6 +36,7 @@ set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " --------キーマッピング--------
 " JJを入力でインサートモードを抜ける
 inoremap <silent> jj <ESC>
+tnoremap jj <C-\><C-n>
 " ------------------------
 
 " --------インデント--------
@@ -128,11 +129,12 @@ augroup lsp_install
   autocmd User lsp_buffer_enabled call s:onLspBufferEnabled()
 augroup END
 
-" vim-lsp-settins
+" vim-lsp-settings
 let g:lsp_settings_filetype_javascript = ['typescript-language-server']
 let g:lsp_settings_filetype_javascriptreact = ['typescript-language-server']
 let g:lsp_settings_filetype_typescript = ['typescript-language-server']
 let g:lsp_settings_filetype_typescriptreact = ['typescript-language-server']
+let g:lsp_settings_filetype_scala = ['metals']
 
 " https://github.com/prabirshrestha/asyncomplete.vim
 " https://github.com/prabirshrestha/asyncomplete-lsp.vim
@@ -154,6 +156,7 @@ let g:ale_linters_explicit = 1
 " 編集中のバッファを保存するタイミングで自動でコード修正
 let g:ale_fix_on_save = 1
 
-let g:ale_fixers = { 'typescript': ['eslint', 'prettier'], 'typescriptreact': ['eslint', 'prettier'], }
-let g:ale_linters = { 'typescript': ['eslint'], 'typescriptreact': ['eslint'], }
+let g:ale_fixers = { 'typescript': ['eslint', 'prettier'], 'typescriptreact': ['eslint', 'prettier'], 'javascript': ['eslint', 'prettier'], }
+let g:ale_linters = { 'typescript': ['eslint'], 'typescriptreact': ['eslint'], 'javascript': ['eslint'], }
+let g:ale_linters = { 'scala': ['sbtserver'], }
 " ------------------------
